@@ -23,12 +23,12 @@ export default defineConfig({
           autogenerate: { directory: "ethics" },
         },
         {
-          label: "Government",
-          autogenerate: { directory: "government" },
-        },
-        {
           label: "Science",
           autogenerate: { directory: "science" },
+        },
+        {
+          label: "U.S. Constitution",
+          autogenerate: { directory: "constitution" },
         },
       ],
     }),
