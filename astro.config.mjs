@@ -10,6 +10,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Decency and Learning",
+      components: {
+        // Override the default Pagination component.
+        Pagination: './src/components/starlight/Pagination.astro',
+      },
       social: [
         {
           icon: "github",
