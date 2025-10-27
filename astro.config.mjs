@@ -19,11 +19,6 @@ export default defineConfig({
         Pagination: './src/components/starlight/Pagination.astro',
       },
       social: [
-        {
-          icon: "github",
-          label: "GitHub",
-          href: "https://github.com/withastro/starlight",
-        },
       ],
       sidebar: [
         {
