@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Decency and Learning",
-      favicon: "/dandl.png",
+      favicon: "/dandl.svg",
       logo: {
         src: "./src/assets/dandl.svg",
       },
