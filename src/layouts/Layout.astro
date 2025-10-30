@@ -1,0 +1,11 @@
+---
+import Analytics from "@vercel/analytics/astro";
+const isProd = import.meta.env.PROD;
+---
+
+<html lang="en">
+  <body>
+    <slot />
+    {isProd && <Analytics />}
+  </body>
+</html>
