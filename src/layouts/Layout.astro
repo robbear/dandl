@@ -1,11 +1,12 @@
 ---
 import Analytics from "@vercel/analytics/astro";
-const isProd = import.meta.env.PROD;
+import SpeedInsights from "@vercel/speed-insights/astro"
 ---
 
 <html lang="en">
   <body>
     <slot />
-    {isProd && <Analytics />}
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
