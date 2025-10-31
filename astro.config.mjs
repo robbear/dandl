@@ -4,26 +4,6 @@ import starlight from "@astrojs/starlight";
 
 import vercel from "@astrojs/vercel";
 
-const isProd = process.env.NODE_ENV === 'production';
-const GA = isProd ? [
-  {
-    tag: "script",
-    attrs: {
-      async: true,
-      src: "https://www.googletagmanager.com/gtag/js?id=G-Q36800T3QX",
-    },
-  },
-  {
-    tag: "script",
-    content: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q36800T3QX');
-      `,
-  },
-] : [];
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://decencyandlearning.com",
@@ -36,11 +16,49 @@ export default defineConfig({
       },
       components: {
         // Override the default Pagination component.
-        Pagination: './src/components/starlight/Pagination.astro',
+        Pagination: "./src/components/starlight/Pagination.astro",
       },
-      head: GA,
-      social: [
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            async: true,
+            src: "https://www.googletagmanager.com/gtag/js?id=G-Q36800T3QX",
+          },
+        },
+        {
+          tag: "script",
+          content: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Q36800T3QX');
+      `,
+        },
+        {
+          tag: "script",
+          content: `window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };`,
+        },
+        {
+          tag: "script",
+          attrs: {
+            src: "/_vercel/speed-insights/script.js",
+            async: true,
+          },
+        },
+        {
+          tag: "script",
+          content: `window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };`,
+        },
+        {
+          tag: "script",
+          attrs: {
+            src: "/_vercel/insights/script.js",
+            async: true,
+          },
+        },
       ],
+      social: [],
       sidebar: [
         {
           label: "Ethics",
