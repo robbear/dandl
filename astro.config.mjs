@@ -3,6 +3,9 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 import vercel from "@astrojs/vercel";
+const IS_PRODUCTION = process.env.VERCEL_ENV === 'production';
+const speedInsights = IS_PRODUCTION ? "/_vercel/speed-insights/script.js" : "";
+const insights = IS_PRODUCTION ? "/_vercel/insights/script.js" : "";
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,7 +45,7 @@ export default defineConfig({
         {
           tag: "script",
           attrs: {
-            src: "/_vercel/speed-insights/script.js",
+            src: speedInsights,
             async: true,
           },
         },
@@ -53,7 +56,7 @@ export default defineConfig({
         {
           tag: "script",
           attrs: {
-            src: "/_vercel/insights/script.js",
+            src: insights,
             async: true,
           },
         },
